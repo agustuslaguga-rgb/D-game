@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roadbound | Open World Car Game</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.164.1/build/three.module.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="game"></div>
+
+  <header class="topbar">
+    <div class="brand">ROAD<span>BOUND</span></div>
+    <div class="wallet">CREDITS: <strong id="money">1200</strong></div>
+  </header>
+
+  <aside class="panel">
+    <p class="tag">OPEN WORLD • FREE ROAM</p>
+    <h1>FIND YOUR<br><span>OWN ROAD.</span></h1>
+    <p>Explore the valley. Collect credits. Build your dream car.</p>
+
+    <div class="stat">
+      <small>VELOCITY</small>
+      <strong><span id="speed">0</span> KM/H</strong>
+    </div>
+
+    <div class="stat">
+      <small>ENGINE POWER</small>
+      <strong id="power">180 HP</strong>
+    </div>
+
+    <button id="openGarage">OPEN GARAGE ↗</button>
+
+    <p class="controls">
+      W A S D — Drive<br>
+      SPACE — Brake<br>
+      Collect glowing orbs to earn credits.
+    </p>
+  </aside>
+
+  <div class="map-panel">
+    <h3>WORLD MAP</h3>
+    <canvas id="minimap" width="180" height="140"></canvas>
+    <p>VALLEY DISTRICT</p>
+  </div>
+
+  <section id="garage" class="garage hidden">
+    <div class="garage-box">
+      <button id="closeGarage" class="close">✕</button>
+      <p class="tag">YOUR PERSONAL WORKSHOP</p>
+      <h2>BUILD YOUR RIDE</h2>
+
+      <div class="car-preview" id="carPreview">
+        <div class="preview-car"></div>
+      </div>
+
+      <h3>BODY COLOR</h3>
+      <div class="colors">
+        <button style="background:#ef553f" data-color="#ef553f"></button>
+        <button style="background:#eeeeee" data-color="#eeeeee"></button>
+        <button style="background:#3689ff" data-color="#3689ff"></button>
+        <button style="background:#35c98b" data-color="#35c98b"></button>
+        <button style="background:#a66cff" data-color="#a66cff"></button>
+        <button style="background:#f2b84b" data-color="#f2b84b"></button>
+      </div>
+
+      <div class="upgrade">
+        <div>
+          <strong>ENGINE UPGRADE</strong>
+          <p>Increase acceleration and horsepower.</p>
+          <small id="engineLevel">Level 1</small>
+        </div>
+        <button id="engineBuy">450 CR</button>
+      </div>
+
+      <div class="upgrade">
+        <div>
+          <strong>TURBO KIT</strong>
+          <p>Improve acceleration and top speed.</p>
+          <small id="turboLevel">Level 0</small>
+        </div>
+        <button id="turboBuy">600 CR</button>
+      </div>
+
+      <div class="upgrade">
+        <div>
+          <strong>SPORT WHEELS & MAGS</strong>
+          <p>Upgrade your rims and wheel appearance.</p>
+          <small id="wheelLevel">Level 1</small>
+        </div>
+        <button id="wheelBuy">350 CR</button>
+      </div>
+
+      <button id="driveButton" class="drive-button">BACK TO DRIVING ↗</button>
+    </div>
+  </section>
+
+  <div id="toast"></div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
